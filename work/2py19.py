@@ -48,30 +48,52 @@ a b c
 
 '''
 
-
-def test1(i):
-	print i
-
-ts = []	
-info = [1,2,3,4,55,233]
-for i in info:
-	th = threading.Thread(target=test1, args=[i])
-	th.start()
-	ts.append(th)
-	
-for i in ts:
-	i.join()
-	
-print "the end"
-		
+#
+#def test1(i):
+#	print i
+#
+#ts = []	
+#info = [1,2,3,4,55,233]
+#for i in info:
+#	th = threading.Thread(target=test1, args=[i])
+#	th.start()
+#	ts.append(th)
+#	
+#for i in ts:
+#	i.join()
+#	
+#print "the end"
+#		
 
 '''
 习题二：已知列表 urlinfo = ['http://www.sohu.com','http://www.163.com','http://www.sina.com'] 
 用多线程的方式分别打开列表里的URL，并且输出对应的网页标题和内容。
 '''
-def test2():
+
+
+ts = []
+urlinfo = ['http://www.sohu.com','http://www.163.com','http://www.sina.com'] 
+
+def test2(url):
+	content = urllib.urlopen(url)
+	content = content.read()
+	print url
+	print content
+test2(urlinfo[0])
+
+for i in urlinfo:
+	print i
+#	t	est2(i)	
 	
 	
+#	th = threading.Thread(target=test2, args=[i])
+#    th.start()
+#	ts.append(th)
+			
+#for i in ts:
+#	i.join()		
+#	
+
 
 
 '''
@@ -80,5 +102,5 @@ def test2():
 
 '''
 
-		
+
 		
