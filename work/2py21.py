@@ -99,24 +99,20 @@ print "**********************************************"
 yield:
 
 '''
-f = [1,1]
-def fbs(fb):
-    s1 = 1
-    s2 = 1
-    s3 = 2
-    while fb>s3:
-#        fb-=1
-        s3 = s1 + s2
-#        print s3
-        f.append(s3)
-        s1 = s2
-        s2 = s3
-    f.pop()       
-
-fbs(100) 
-print f
-        
-
+def fbs(fs):
+    x,y = 1,1
+    f = [x]
+    while fs>y:
+        f.append(y)
+        x,y = y,x+y
+    return f
+print fbs(10) 
+a = 2      
+b = 3
+print a
+print b
+a,b = b,a
+print a,b
 
 
 

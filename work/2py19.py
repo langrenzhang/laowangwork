@@ -1,6 +1,7 @@
 #coding=utf-8
 import threading
 import time
+import re
 import urllib
 '''
 多线程
@@ -74,25 +75,27 @@ a b c
 ts = []
 urlinfo = ['http://www.sohu.com','http://www.163.com','http://www.sina.com'] 
 
-def test2(url):
-	content = urllib.urlopen(url)
-	content = content.read()
-	print url
-	print content
-test2(urlinfo[0])
+def git_url(url):
+    u = urllib.urlopen(url).open()
+    re_title = '<title>(.*)</title>'  #</head>
+    title = re.findall(re_title.u)
+    print title[0],u
+
+# xian cheng queue--dueilie   //yield
 
 for i in urlinfo:
-	print i
-#	t	est2(i)	
-	
-	
-#	th = threading.Thread(target=test2, args=[i])
-#    th.start()
-#	ts.append(th)
-			
-#for i in ts:
-#	i.join()		
-#	
+    th = threading.Thread(target = git_url,args = [i])
+    th.start()
+    ts.append(th)
+
+
+for i in ts:
+    i.join()
+
+
+
+
+
 
 
 
