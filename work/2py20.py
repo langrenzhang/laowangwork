@@ -31,8 +31,6 @@ import urllib
 5.rlock 可重入锁
 
 
-'''
-
 
 # import threading
 
@@ -100,8 +98,6 @@ d.start()
 
 
 
-
-'''
 习题：
 
 有10个刷卡机，代表建立10个线程，每个刷卡机每次扣除用户一块钱进入总账中，每个刷卡机每天一共被刷100次。账户原有500块。所以当天最后的总账应该为1500
@@ -110,3 +106,30 @@ d.start()
 
 
 '''
+
+
+
+total = 500
+mlock = threading.RLock()
+def test():
+    global total
+    mlock.acquire()
+
+    for i in xrange(0,100):
+        
+        total = total + 1
+
+    mlock.release()
+
+t1 = time.time()
+st = []
+for i in xrange(0,10):
+    sh = threading.Thread(target=test)    
+    sh.start()
+    st.append(sh)
+    print total
+
+for i in st:
+    i.join()
+t2 = time.time()
+print t2-t1

@@ -70,7 +70,7 @@ for i in xrange(0,15):
 print '***************************************'
 
 total = 500
-mlock = threading.Rlock()
+mlock = threading.RLock()
 def test():
     global total
     mlock.acquire()
