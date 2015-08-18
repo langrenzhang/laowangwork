@@ -26,16 +26,34 @@ def is_prime(p):
 #函数化
 #def num_auto(numax):
 #    return [i for i in xrange(1, numax+1) if is_prime(i)]#注意
-print num_auto(5000)
+#print num_auto(50)
     
     
 '''
-用yied求1000000000000后100个素数
-
+yield for user
 '''
 
+def gen():
+    for i in xrange(5):
+        print 'i: %d' % i
+        m = yield i
+        print 'm: ', m
 
-         
+g = gen()
+n = g.next()
+print 'g: %d' % n
+n = g.next()
+print 'g: %d' % n
+n = g.send(6)
+print 'g: %d' % n
+n = g.send(None)
+print 'g: %d' % n
+g.throw(GeneratorExit)
+n = g.next()
 
+'''
+用yield求1000000000000后100个素数
+
+'''
 
 
