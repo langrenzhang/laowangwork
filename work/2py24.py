@@ -5,21 +5,6 @@ import re
 import urllib
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 '''
 1 已知字符串:
 info = '<a href="http://www.baidu.com">baidu</a>'
@@ -31,11 +16,10 @@ info = '<a href="http://www.baidu.com">baidu</a>'
 3 已知字符串：text = "JGood is a handsome boy, he is cool, clever, and so on..." 查找所有包含'oo'的单词。
 
 '''
+info = '<a href="http://www.baidu.com">baidu</a>'
 
-
-
-
-
+s = re.split('\"\"',info)
+print s
 
 
 
