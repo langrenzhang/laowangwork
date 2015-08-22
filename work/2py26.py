@@ -1,4 +1,3 @@
-
 #coding=utf-8
 import threading
 import time
@@ -7,9 +6,7 @@ import urllib
 import socket
 
 
-
 '''
-
 socket
   1,udp,tcp/ip,socket
      HTTP tcp/ip
@@ -36,7 +33,6 @@ socket
 	 3.7 不关闭就惨了 connection.close()			   不要忘了关闭，如果是异地还有超时怎么办。。。
 '''
 
-
 s = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 s.bind(('127.0.0.1',8125))
 s.listen(8)
@@ -49,11 +45,12 @@ s.listen(8)
 [1,2,3,5,6,7,8]这个时候9会进去变成
 [1,2,3,5,6,7,8,9]
 '''
+
 while 1:
     connection,address = s.accept()
     buf = connection.recv(10)
     connection.send(buf)
-    continue
+# 为什么只能运行一次
 s.close()
 
 
