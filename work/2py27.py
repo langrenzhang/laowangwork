@@ -6,6 +6,9 @@ import urllib
 import socket
 
 '''
+hui tou jie zhe zuo lian xi ti 
+
+
 多线程爬虫
 
 1.抓什么？怎么抓？ -》 确定抓取流程
@@ -68,5 +71,5 @@ print jd_search(keyword)
 dict {pic:'',title:'',price:'',url:''}
 
 '''
-
+d
 
