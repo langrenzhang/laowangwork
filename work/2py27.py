@@ -41,14 +41,15 @@ url :"http://money.163.com/special/pinglun/"
 
 '''
 def caturl(url):
-#    u_file = "<div class=\"area_list clearfix\"> zhangshuo <div miaf>lljsfdk,.? <div class=\"area_list clearfix\">"
-    
-    u_file = urllib.urlopen(url)
+  
+    u_file = urllib.urlopen(url).read()
 #    print type(u_file)
-    u_file = u_file.read()
+#    print u_file
+
+
 #    with open('/home/zhangshuo/url.txt','w') as a:
 #        a.write(u_file)
-#    print u_file
+
 
     parttent = re.compile(r'<div class="list_item clearfix">(.*?)<div class="item_bottom">')
     match = parttent.findall(u_file)
