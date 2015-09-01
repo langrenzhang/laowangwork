@@ -56,8 +56,22 @@ def caturl(url):
     return match
    
 url = "http://money.163.com/special/pinglun/"
-print caturl(url)
+#print caturl(url)
     
+
+
+def getCoder(url):
+    page = urllib.urlopen(url)
+    html = page.read()
+    rule = r'<a data-hash=.*? href="(.*?)" class=.*?>@.*?</a>'
+    coderList = re.findall(rule,html)
+    for coderName in coderList:
+        print coderName
+
+getCoder("http://www.zhihu.com/question/22576739")
+
+
+
 
 
 '''
@@ -72,5 +86,4 @@ print jd_search(keyword)
 dict {pic:'',title:'',price:'',url:''}
 
 '''
-d
 
