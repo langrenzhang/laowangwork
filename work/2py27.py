@@ -42,16 +42,14 @@ url :"http://money.163.com/special/pinglun/"
 '''
 def caturl(url):
   
-    u_file = urllib.urlopen(url).read()
-#    print type(u_file)
-#    print u_file
-
-
+    html = urllib.urlopen(url)
+    content = html.read()
+    
 #    with open('/home/zhangshuo/url.txt','w') as a:
 #        a.write(u_file)
 
 
-    parttent = re.compile(r'<div class="list_item clearfix">(.*?)<div class="item_bottom">')
+    parttent = re.compile(r'class="list_item clearfix">(.*?)<div class="item_bottom">')
     match = parttent.findall(u_file)
     return match
    
@@ -65,6 +63,7 @@ def getCoder(url):
     html = page.read()
     rule = r'<a data-hash=.*? href="(.*?)" class=.*?>@.*?</a>'
     coderList = re.findall(rule,html)
+    page.close()
     for coderName in coderList:
         print coderName
 
