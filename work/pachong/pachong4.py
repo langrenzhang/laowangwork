@@ -5,7 +5,12 @@ import re
 import urllib
 from bs4 import BeautifulSoup
 
-""" doc 主要bs4来爬图片"""
+""" 
+doc 主要bs4来爬图片
+
+http://q.115.com/t-127612-1235090.html  爬出来
+
+"""
 
 def get_content(url):
     """ doc """
