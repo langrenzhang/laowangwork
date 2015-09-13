@@ -17,7 +17,7 @@ import codecs
 #import codecs
 
 
-#class W3SchoolPipeline(object):
+class W3SchoolPipeline(object):
     def __init__(self):
         self.file = codecs.open('w3school_data_utf8.json', 'wb', encoding='utf-8')
 
