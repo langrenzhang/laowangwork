@@ -35,6 +35,7 @@ sel.xpath('//title/text()')
 sel.xpath('//title/text()').re('(\w+):')
 
 
+#################################################################################
 保存爬取到的数据 最简单存储爬取的数据的方式是使用 Feed exports:
 scrapy crawl dmoz -o items.json
 
@@ -295,3 +296,4 @@ COMMANDS_MODULE = 'mybot.commands'
 
 
 ###############################################
+Items   Spiders

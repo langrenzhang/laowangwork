@@ -54,9 +54,14 @@ def get_dict(url):
 
 使用scrapy完成作业2的需求。
 
-jd_search(keyword,page_skip=1,page_limit=10) #抓1后面10页（包括第10页）的内容。
-jd_search(keyword,page_skip=4,page_limit=3) #抓4后面3页（包括第6页）的内容。
+jd_search(keyword,page_skip=1,page_limit=10) 
+#抓1后面10页（包括第10页）的内容。
 
+jd_search(keyword,page_skip=4,page_limit=3) 
+#抓4后面3页（包括第6页）的内容。
+
+
+scrapy 在sinaweibo那个文件夹下面
 '''
 
 
