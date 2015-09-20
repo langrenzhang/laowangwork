@@ -2,7 +2,7 @@
 #import threading
 #import time
 #import re
-import urllib
+#import urllib
 
 '''
 studyer:  zhangshuo
@@ -16,6 +16,9 @@ learning: wsgi
 2、查询运行文件所在地址（文件夹地址）
 查询软件文件夹地址的方法是通过which命令。如查看php文件夹的地址：
     which python
+
+3、wsgi位置：/usr/lib/python2.7/wsgiref$ 
+
 
     
 Python的强大，其中一个重要原因是Python有很丰富的库（模块）从而可以比较方便地处理各种各样的问题。
@@ -67,3 +70,28 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 '''
 
+from wsgiref.simple_server import make_server 
+
+def demo_app(environ,start_response):
+    from StringIO import StringIO
+    stdout = StringIO()
+    print >>stdout, "Hello ZhangShuo! => %s"%environ['PATH_INFO'][1:]
+    print >>stdout  
+    for key in environ:
+        print key + ":" , environ[key] 
+#    h = environ.items(); h.sort()    
+#    for k,v in h:
+#        print >>stdout, k,'=', repr(v)
+    start_response("200 OK", [('Content-Type','text/plain')])
+    return [stdout.getvalue()]
+
+
+httpd = make_server('', 8000, demo_app)
+sa = httpd.socket.getsockname()
+print "Serving HTTP on", sa[0], "port", sa[1], "..."
+#import webbrowser
+#webbrowser.open('http://localhost:8000/zs?110')
+#httpd.handle_request()  # serve one request, then exit
+#httpd.server_close()
+#print dir(httpd)
+httpd.serve_forever()
