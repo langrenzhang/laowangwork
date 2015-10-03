@@ -40,5 +40,37 @@
 
 """
 
-def (${2:}):
-    ${0}
+"""
+授权步骤（居于oauth2）：
+
+1 生成第三方url,跳转过去让用户对我们的应用授权
+
+APP_KEY = '3512831944'            # app key
+APP_SECRET = 'c477697108b5f856f0f38e979ffa79c1'      # app secret
+CALLBACK_URL = 'http://www.github.com/langrenzhang'  # callback url
+
+2 授权成功后，跳转到callback_url里，传一个code参数。
+"""
+
+from weibo import APIClient
+#from weibo import TwitterMixin      #error: suppose you are using Twitter
+
+
+APP_KEY = '3512831944'            # app key
+APP_SECRET = 'c477697108b5f856f0f38e979ffa79c1'      # app secret
+CALLBACK_URL = 'http://www.github.com/langrenzhang'  # callback url
+
+client = APIClient(app_key=APP_KEY, app_secret=APP_SECRET, redirect_uri=CALLBACK_URL)
+
+url = client.get_authorize_url()    # redirect the user to 'url'
+
+print url
+
+
+
+"""
+r = client.request_access_token(SOME_CODE)
+access_token = r.access_token  # access token，e.g., abc123xyz456
+expires = r.expires      # token expires time, UNIX timestamp, e.g., 1384826449.252 (10:01 am, 19 Nov 2013, UTC+8:00)
+NOTE: you should store the access_token for later use.
+"""
