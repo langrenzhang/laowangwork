@@ -19,9 +19,9 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-#    url(r'^$', 'blog.views.home'),               #前面的r里面是正则表达式，和后面的页面方法相对应
+    url(r'^$', 'blog.views.home'),               #前面的r里面是正则表达式，和后面的页面方法相对应
 #    url(r'^blog/top_[\d]$', 'blog.views.home'),
-     url(r'^blog/top_(?P<id>[\d]+)$', 'blog.views.home'),
+#     url(r'^blog/top_(?P<id>[\d]+)$', 'blog.views.home'),
 
 ]
 

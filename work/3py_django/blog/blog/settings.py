@@ -24,6 +24,7 @@ SECRET_KEY = 'nf(11=4!783g3=m(^ney+=+c6y7f+x!$_y&%ee&2d6gaph$9pc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+#DEBUG = False
 
 ALLOWED_HOSTS = []
 
