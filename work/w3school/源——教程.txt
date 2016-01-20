@@ -1,0 +1,7 @@
+http://blog.csdn.net/u012150179/article/details/32911511
+
+创建：scapy startproject w3school  
+
+查看教程，编号代码后：scrapy crawl w3school --set LOG_FILE=log  启动
+
+

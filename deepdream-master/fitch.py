@@ -12,4 +12,5 @@ for i in a:
     for j in b:
         if i == j:
             ps.append(i) 
-print ps
+with open('w.txt', 'w') as file3:
+    c = file3.write(w)
