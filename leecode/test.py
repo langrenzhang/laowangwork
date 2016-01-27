@@ -17,11 +17,13 @@
 
 
 a = "pwwkew"
-print a
-a = set(a)
-print a
-print a
-print a
-print a
-print a
-print a
+
+#for i in a:
+#    print i
+
+l = [-1]*128
+print type(l)
+print l
+    
+    
+    
